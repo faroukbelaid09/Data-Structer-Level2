@@ -12,7 +12,7 @@ namespace RemovingFromList
         {
             // Init List
             List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
-            Console.WriteLine("Original List: " + string.Join(" ", list));
+            Console.WriteLine("Original List: " + string.Join(" ", list)); 
 
             // Removing specific value
             list.Remove(5);
