@@ -24,6 +24,27 @@ namespace LinqWithSortedList
             {
                 Console.WriteLine(item.Key + " : " + item.Value);
             }
+
+            Console.WriteLine("--------------------------------------------------");
+            // Advance LINQ Usage
+
+            SortedList<int, string> fruits = new SortedList<int, string>()
+            {
+                {1,"Apple"},
+                {2,"Banana"},
+                {3,"Cherry"},
+                {4,"Date"},
+                {5,"Grape"},
+                {6,"Fig"},
+                {7,"Elderberry"},
+            };
+
+            var groupedByLength = fruits.GroupBy(x => x.Value.Length);
+
+            foreach (var item in groupedByLength) 
+            {
+                Console.WriteLine("Length " + item.Key + ": " + string.Join(", ",item.Select(x=>x.Value)));
+            }
         }
     }
 }
