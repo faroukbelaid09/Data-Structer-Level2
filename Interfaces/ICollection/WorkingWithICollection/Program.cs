@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WorkingWithICollection
 {
@@ -12,7 +8,6 @@ namespace WorkingWithICollection
     public class SimpleCollection<T> : ICollection<T>
     {
         private List<T> list = new List<T>();
-
 
         public int Count => list.Count;
 
