@@ -103,6 +103,8 @@ namespace WorkingWithICollection
             {
                 Console.WriteLine(i);
             }
+
+            Console.WriteLine("-------------");
         }
     }
 }
