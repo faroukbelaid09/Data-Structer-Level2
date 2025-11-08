@@ -32,7 +32,6 @@ namespace WorkingWithBinaryTree
             Root = null;
         }
 
-
         public void Insert(T value)
         {
             var newNode = new BinaryTreeNode<T>(value); 
