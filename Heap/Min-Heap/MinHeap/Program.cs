@@ -37,6 +37,18 @@ namespace MinHeap
 
             foreach(int value in _heap) Console.WriteLine(value);
         }
+
+        // Peek the minimum element without removing it
+        public int Peek()
+        {
+            if (_heap.Count == 0)
+            if (_heap.Count == 0)
+            {
+                throw new InvalidOperationException("Heap is empty.");
+            }
+
+            return _heap[0]; // The smallest element is at the root
+        }
     }
     internal class Program
     {
