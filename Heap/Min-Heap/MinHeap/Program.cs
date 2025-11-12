@@ -42,12 +42,55 @@ namespace MinHeap
         public int Peek()
         {
             if (_heap.Count == 0)
-            if (_heap.Count == 0)
             {
                 throw new InvalidOperationException("Heap is empty.");
             }
 
             return _heap[0]; // The smallest element is at the root
+        }
+    
+        public int ExtractMin()
+        {
+            if (_heap.Count == 0) 
+            {
+                throw new InvalidOperationException("Heap is Empty.");
+            }
+
+            int minValue = _heap[0];
+
+            _heap[0] = _heap[_heap.Count-1];
+            _heap.RemoveAt(_heap.Count-1);
+
+            HeapifyDown(_heap.Count-1);
+
+            return minValue;
+        }
+        
+        private void HeapifyDown(int index)
+        {
+            while (index < _heap.Count) 
+            {
+                int leftChildIndex = 2 * index + 1;
+                int rightChildIndex = 2 * index + 2;
+
+                int smallestIndex = index;
+                
+                if(leftChildIndex < _heap.Count && _heap[leftChildIndex] < _heap[smallestIndex])
+                {
+                    smallestIndex = leftChildIndex;
+                }
+
+                if (rightChildIndex < _heap.Count && _heap[rightChildIndex] < _heap[smallestIndex])
+                {
+                    smallestIndex = rightChildIndex;
+                }
+
+                if (smallestIndex == index) break;
+
+                (_heap[index], _heap[smallestIndex]) = (_heap[smallestIndex], _heap[index]);
+
+                index = smallestIndex;
+            }
         }
     }
     internal class Program
@@ -62,6 +105,10 @@ namespace MinHeap
             minHeap.Insert(15);
             minHeap.Insert(2);
             minHeap.Insert(8);
+
+            minHeap.DisplayMinHeap();
+
+            minHeap.ExtractMin();
 
             minHeap.DisplayMinHeap();
         }
